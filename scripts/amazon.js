@@ -83,7 +83,7 @@ products.forEach((product) => {
       document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
       console.log(cart);
       console.log(amount);
-      let timeID;
+      let timeID;  
       time();
       function time() {
         const img = document.querySelector(`.js-added-to-cart-${productId}`);
