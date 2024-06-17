@@ -2,7 +2,7 @@ import { cart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 let checkoutProduct ="";
-cart.forEach((item) => {
+cart.forEach((item, index) => {
   const productId = item.productId;
 
   let matchingProduct ="";
@@ -48,7 +48,7 @@ cart.forEach((item) => {
 
         <div class="delivery-option">
           <input type="radio" class="delivery-option-input"
-            name="delivery-option-2">
+            name="delivery-option-${index+1}">
           <div>
             <div class="delivery-option-date">
               Tuesday, June 21
@@ -60,7 +60,7 @@ cart.forEach((item) => {
         </div>
         <div class="delivery-option">
           <input type="radio" checked class="delivery-option-input"
-            name="delivery-option-2">
+            name="delivery-option-${index+1}">
           <div>
             <div class="delivery-option-date">
               Wednesday, June 15
@@ -72,7 +72,7 @@ cart.forEach((item) => {
         </div>
         <div class="delivery-option">
           <input type="radio" class="delivery-option-input"
-            name="delivery-option-2">
+            name="delivery-option-${index+1}">
           <div>
             <div class="delivery-option-date">
               Monday, June 13
