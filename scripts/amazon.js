@@ -1,5 +1,5 @@
 import { products } from "../data/products.js";
-import { cart, addToCart } from "../data/cart.js"; 
+import { updateCartQuantity, addToCart } from "../data/cart.js"; 
 import { formatCurrency } from "./utils/money.js";
 let productsHTML = "";
 
@@ -58,14 +58,8 @@ products.forEach((product) => {
   `;
   document.querySelector(".js-products-grid").innerHTML = productsHTML;
 });
-function updateCartQuantity() {
-  let cartQuantity = 0;
+updateCartQuantity()
 
-  cart.forEach((item) => {
-    cartQuantity += item.quantity;
-  });
-  document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
-  }
 let timeID;
 function time(productId) {
   const img = document.querySelector(`.js-added-to-cart-${productId}`);
