@@ -3,6 +3,7 @@ import {
   removeProduct,
   updateQuantity,
   updateDeliveryOption,
+  updateCheckoutQuantity,
 } from "../../data/cart.js";
 import { products , getProduct} from "../../data/products.js";
 import { formatCurrency } from "../utils/money.js";
@@ -110,26 +111,21 @@ export function renderOrderSummary() {
     link.addEventListener("click", () => {
       const productId = link.dataset.productId;
       removeProduct(productId);
-      console.log(cart);
       const container = document.querySelector(
         `.js-cart-item-container-${productId}`
       );
       container.remove();
-      updateCartQuantity();
+      updateCheckoutQuantity();
+      renderOrderSummary()
       renderPaymentSummary()
     });
   });
-  function updateCartQuantity() {
-    let cartQuantity = 0;
-
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    });
+  const cartQuantity = updateCheckoutQuantity()
     document.querySelector(
       ".js-return-to-home"
     ).innerHTML = `${cartQuantity} items`;
-  }
-  updateCartQuantity();
+  
+  updateCheckoutQuantity();
 
   document.querySelectorAll(`.js-update-quantity`).forEach((link) => {
     link.addEventListener("click", () => {
@@ -169,7 +165,8 @@ export function renderOrderSummary() {
     document.querySelector(`.js-quantity-label-${productId}`).innerHTML =
       inputValue;
     updateQuantity(productId, inputValue);
-    updateCartQuantity();
+    updateCheckoutQuantity();
+    renderOrderSummary()
     renderPaymentSummary();
   }
 

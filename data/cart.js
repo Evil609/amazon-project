@@ -1,3 +1,5 @@
+import { renderOrderSummary } from "../scripts/checkout/orderSummary.js";
+import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
 export let cart = JSON.parse(localStorage.getItem("cart"));
 if (!cart) {
   cart = [
@@ -58,6 +60,7 @@ export function updateCartQuantity() {
     cartQuantity += item.quantity;
   });
   document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+  return cartQuantity;
 }
 
 export function updateQuantity(productId, newQuantity){
@@ -68,7 +71,9 @@ export function updateQuantity(productId, newQuantity){
     }
   })
   matchingItem.quantity = newQuantity;
-  saveToCart()
+  saveToCart();
+  renderPaymentSummary();
+  renderOrderSummary();
 }
 
 export function updateDeliveryOption(productId, deliveryOptionId) {
@@ -82,4 +87,13 @@ export function updateDeliveryOption(productId, deliveryOptionId) {
   sameItem.deliveryOptionId = deliveryOptionId;
 
   saveToCart()
+}
+export function updateCheckoutQuantity() {
+  let cartQuantity = 0;
+
+  cart.forEach((item) => {
+    cartQuantity += item.quantity;
+  });
+
+  return cartQuantity
 }
