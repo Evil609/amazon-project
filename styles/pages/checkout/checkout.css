@@ -128,12 +128,17 @@
 
 .is-editing-quantity .quantity-input {
     display:initial;
+    width: 40px;
+    font-size: 14px;
 }
 .is-editing-quantity .save-quantity-link{
   display:initial
 }
 .is-editing-quantity .update-quantity-link{
-  display:none
+  display:none;
+}
+.is-editing-quantity .quantity-label{
+  display:none;
 }
 
 @media (max-width: 1000px) {

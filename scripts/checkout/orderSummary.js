@@ -52,7 +52,7 @@ export function renderOrderSummary() {
           data-product-id=${matchingProduct.id}>
             Update
           </span>
-          <input class="quantity-input js-input-quantity-${matchingProduct.id}">
+          <input class="quantity-input js-input-quantity-${matchingProduct.id}" type="number">
           <span class="save-quantity-link link-primary js-save-quantity"
           data-product-id="${matchingProduct.id}">Save</span>
           <span class="delete-quantity-link js-delete-quantity-link link-primary"
