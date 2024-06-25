@@ -1,9 +1,9 @@
-import { products } from "../data/products.js";
+import { products ,shuffleArray} from "../data/products.js";
 import { updateCartQuantity, addToCart } from "../data/cart.js"; 
 import { formatCurrency } from "./utils/money.js";
 let productsHTML = "";
-
-products.forEach((product) => {
+const shuffledProducts = shuffleArray(products);
+shuffledProducts.forEach((product) => {
   productsHTML += `
     <div class="product-container">
           <div class="product-image-container">
