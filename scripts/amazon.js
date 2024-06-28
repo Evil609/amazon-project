@@ -2,8 +2,8 @@ import { products ,shuffleArray} from "../data/products.js";
 import { updateCartQuantity, addToCart } from "../data/cart.js"; 
 import { formatCurrency } from "./utils/money.js";
 let productsHTML = "";
-const shuffledProducts = shuffleArray(products);
-shuffledProducts.forEach((product) => {
+// const shuffledProducts = shuffleArray(products); //activate this future after you finish the course//
+products.forEach((product) => {
   productsHTML += `
     <div class="product-container">
           <div class="product-image-container">
@@ -17,14 +17,14 @@ shuffledProducts.forEach((product) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="images/ratings/rating-${product.rating.stars * 10}.png">
+              src="${product.getImageURL()}">
               <div class="product-rating-count link-primary">
               ${product.rating.count}
               </div>
               </div>
               
               <div class="product-price">
-              $${formatCurrency(product.priceCents)}
+              ${product.getProductPrice()}
               </div>
               
               <div class="product-quantity-container">
