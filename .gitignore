@@ -9,3 +9,4 @@ test-jasmine/lib/jasmine-5.1.2/jasmine.js
 test-jasmine/utils/cart.js
 test-jasmine/utils/cartTest.js
 test-jasmine/utils/moneyTest.js
+data/car.js
