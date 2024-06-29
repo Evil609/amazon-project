@@ -1,8 +1,10 @@
-import { products ,shuffleArray} from "../data/products.js";
+import { products ,loadProducts} from "../data/products.js";
 import { updateCartQuantity, addToCart } from "../data/cart.js"; 
 import { formatCurrency } from "./utils/money.js";
-let productsHTML = "";
-// const shuffledProducts = shuffleArray(products); //activate this future after you finish the course//
+
+loadProducts(renderProductGrid)
+function renderProductGrid() {
+  let productsHTML = "";
 products.forEach((product) => {
   productsHTML += `
     <div class="product-container">
@@ -80,3 +82,5 @@ document.querySelectorAll(".js-add-to-cart").forEach((add) => {
     time(productId);
   });
 });
+}
+
