@@ -3,7 +3,7 @@ import { renderPaymentSummary } from "../scripts/checkout/paymentSummary.js";
 export let cart;
 loadFromStorage();
 
-function loadFromStorage(){
+export function loadFromStorage(){
   cart = JSON.parse(localStorage.getItem("cart"));
   if (!cart) {
     cart = [
