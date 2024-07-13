@@ -71,7 +71,6 @@ export function loadProductsFetch(){
         return new Product(productDetails);
       }
     });
-    console.log('load products fetch');
   }
 )
 return promise; 
@@ -93,7 +92,6 @@ export function loadProducts(fun){
         return new Product(productDetails);
       }
     });
-    console.log('load products');
     if (typeof fun === 'function') {
       fun();
     }
